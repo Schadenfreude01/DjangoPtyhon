@@ -23,7 +23,7 @@
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">Bienvenido de Vuelta!</h1>
                     <small class="text-danger">
-                      {% if form.errors %}
+                      <!-- {% if form.errors %}
                           {% for field in form %}
                               {% if field.errors %}
                                   {% for error in field.errors %}
@@ -37,6 +37,10 @@
                                   {{ error|escape }}
                               {% endfor %}
                           {% endif %}
+                      {% endif %} -->
+
+                      {% if form.errors%}
+                        Nombre de usuario o contrasena incorrecta
                       {% endif %}
                   </small>
                   </div>
