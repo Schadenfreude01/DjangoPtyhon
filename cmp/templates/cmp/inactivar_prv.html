@@ -44,6 +44,7 @@
       
       var id = {{ obj.id }};
       var template = "{% url 'cmp:proveedor_inactivar' obj.id %}";
+      // template += 1
       var data = { 'id':id };
 
       data = JSON.stringify(data);
@@ -58,11 +59,16 @@
         },
         success: function(response){
           console.log(response);
+
+          var tipo = (response.startsWith('Proveedor no existe') ? 'red':'green');
+          mensaje(response, tipo);
+          
           cerrarModal();
-          alert(response);
         },
         error: function(jqXHR, textStatus, errorThrow){
           console.log(textStatus, errorThrow);
+          mensaje(errorThrow,'red');
+
           cerrarModal();
         }
 
